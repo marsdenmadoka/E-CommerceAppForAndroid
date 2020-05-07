@@ -46,14 +46,14 @@ public class AdminCategoryActivity extends AppCompatActivity {
             }
         });
 
-        CheckOrdersBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminNewOrdersActivity.class);
-                startActivity(intent);
-            }
-        });
+       // CheckOrdersBtn.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View view)
+            //{
+             //   Intent intent = new Intent(AdminCategoryActivity.this, AdminNewOrdersActivity.class);
+           //     startActivity(intent);
+         //   }
+       // });
 
 
         tShirts = (ImageView) findViewById(R.id.t_shirts);
@@ -205,4 +205,4 @@ public class AdminCategoryActivity extends AppCompatActivity {
         });
     }
     }
-}
+
