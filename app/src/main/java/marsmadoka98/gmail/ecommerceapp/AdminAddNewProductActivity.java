@@ -27,6 +27,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 
 public class AdminAddNewProductActivity extends AppCompatActivity {
@@ -200,7 +201,40 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
             }
         });
     }
+    private void SaveProductInfoToDatabase()
+    {
+        HashMap<String, Object> productMap = new HashMap<>();
+        productMap.put("pid", productRandomKey);
+        productMap.put("date", saveCurrentDate);
+        productMap.put("time", saveCurrentTime);
+        productMap.put("description", Description);
+        productMap.put("image", downloadImageUrl);
+        productMap.put("category", CategoryName);
+        productMap.put("price", Price);
+        productMap.put("pname", Pname);
 
+        ProductsRef.child(productRandomKey).updateChildren(productMap)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            Intent intent = new Intent(AdminAddNewProductActivity.this, AdminCategoryActivity.class);
+                            startActivity(intent);
+
+                            loadingBar.dismiss();
+                            Toast.makeText(AdminAddNewProductActivity.this, "Product is added successfully..", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            loadingBar.dismiss();
+                            String message = task.getException().toString();
+                            Toast.makeText(AdminAddNewProductActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
 
 
 }
