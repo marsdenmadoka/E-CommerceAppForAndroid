@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -21,7 +22,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
+import marsmadoka98.gmail.ecommerceapp.Prevalent.Prevalent;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -55,8 +58,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        View view = navigationView.getHeaderView(0);
+        TextView username=view.findViewById(R.id.user_profile_name);//setting the user name in our nav-drawer
+        CircleImageView profileimage=view.findViewById(R.id.user_profile_image);
+       username.setText(Prevalent.currentOnlineUser.getName());//we used this since its readily available in our prevalent class so no need to fetch it from DB again
+
     }
     @Override
     public void onBackPressed() {

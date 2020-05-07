@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                                Prevalent.currentOnlineUser = usersData;
+                                Prevalent.currentOnlineUser = usersData;//we want to remember the username and password
                                 startActivity(intent);
                             }
                         } else {
