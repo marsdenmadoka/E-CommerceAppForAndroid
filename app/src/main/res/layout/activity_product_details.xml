@@ -61,6 +61,7 @@
         app:initialNumber="1"
         app:finalNumber="10"
         android:layout_centerHorizontal="true"
+        android:background="#7A0D32"
         android:layout_below="@+id/product_price_details"
         android:layout_marginTop="10dp"
         >
@@ -71,7 +72,7 @@
         android:id="@+id/pd_add_to_cart_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
+        android:background="#7A0D32"
         android:layout_margin="15dp"
         android:layout_alignParentBottom="true"
         android:text="Add to Cart"
