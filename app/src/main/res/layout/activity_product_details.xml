@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="6dp"
-        app:textSize="16dp"
+        app:textSize="16sp"
         app:initialNumber="1"
         app:finalNumber="10"
         android:layout_centerHorizontal="true"
