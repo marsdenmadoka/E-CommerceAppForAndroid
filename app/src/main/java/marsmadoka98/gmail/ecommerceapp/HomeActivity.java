@@ -78,7 +78,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         TextView username=view.findViewById(R.id.user_profile_name);//setting the user name in our nav-drawer
         CircleImageView profileimage=view.findViewById(R.id.user_profile_image);
        username.setText(Prevalent.currentOnlineUser.getName());//we used this since its readily available in our prevalent class so no need to fetch it from DB again
-
+        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).into(profileimage);
 
         recyclerView = findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
