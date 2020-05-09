@@ -83,7 +83,7 @@ public class CartActivity extends AppCompatActivity {
             {
 
                 holder.txtProductQuantity.setText("Quantity = " + model.getQuantity());
-                holder.txtProductPrice.setText("Price " + (Integer.valueOf(model.getPrice())) * Integer.valueOf(model.getQuantity())+ "$");
+                holder.txtProductPrice.setText("Price  $ " + (Integer.valueOf(model.getPrice())) * Integer.valueOf(model.getQuantity()));
                 holder.txtProductName.setText(model.getPname());
 
 

@@ -118,9 +118,8 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
             {
                 if (task.isSuccessful())
                 {
-                    FirebaseDatabase.getInstance().getReference()
-                            .child("Cart List")
-                            .child("User View")
+                    //once the order has been placed in the Order db  we now remove it from the Cart list db..
+                    FirebaseDatabase.getInstance().getReference().child("Cart List").child("User View")
                             .child(Prevalent.currentOnlineUser.getPhone())
                             .removeValue()
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
