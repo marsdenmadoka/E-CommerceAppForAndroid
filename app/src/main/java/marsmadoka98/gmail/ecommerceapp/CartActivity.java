@@ -75,57 +75,57 @@ public class CartActivity extends AppCompatActivity {
                 holder.txtProductPrice.setText("Price " + model.getPrice() + "$");
                 holder.txtProductName.setText(model.getPname());
 
-//                int oneTyprProductTPrice = ((Integer.valueOf(model.getPrice()))) * Integer.valueOf(model.getQuantity());
-//                overTotalPrice = overTotalPrice + oneTyprProductTPrice;
-//
-//                holder.itemView.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view)
-//                    {
-//                        CharSequence options[] = new CharSequence[]
-//                                {
-//                                        "Edit",
-//                                        "Remove"
-//                                };
-//                        AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
-//                        builder.setTitle("Cart Options:");
-//
-//                        builder.setItems(options, new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialogInterface, int i)
-//                            {
-//                                if (i == 0)
-//                                {
-//                                    Intent intent = new Intent(CartActivity.this, ProductDetailsActivity.class);
-//                                    intent.putExtra("pid", model.getPid());
-//                                    startActivity(intent);
-//                                }
-//                                if (i == 1)
-//                                {
-//                                    cartListRef.child("User View")
-//                                            .child(Prevalent.currentOnlineUser.getPhone())
-//                                            .child("Products")
-//                                            .child(model.getPid())
-//                                            .removeValue()
-//                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                                @Override
-//                                                public void onComplete(@NonNull Task<Void> task)
-//                                                {
-//                                                    if (task.isSuccessful())
-//                                                    {
-//                                                        Toast.makeText(CartActivity.this, "Item removed successfully.", Toast.LENGTH_SHORT).show();
-//
-//                                                        Intent intent = new Intent(CartActivity.this, HomeActivity.class);
-//                                                        startActivity(intent);
-//                                                    }
-//                                                }
-//                                            });
-//                                }
-//                            }
-//                        });
-//                        builder.show();
-//                    }
-//                });
+                int oneTyprProductTPrice = ((Integer.valueOf(model.getPrice()))) * Integer.valueOf(model.getQuantity());
+                overTotalPrice = overTotalPrice + oneTyprProductTPrice;
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        CharSequence options[] = new CharSequence[]
+                                {
+                                        "Edit",
+                                        "Remove"
+                                };
+                        AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
+                        builder.setTitle("Cart Options:");
+
+                        builder.setItems(options, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+                                if (i == 0)
+                                {
+                                    Intent intent = new Intent(CartActivity.this, ProductDetailsActivity.class);
+                                    intent.putExtra("pid", model.getPid());
+                                    startActivity(intent);
+                                }
+                                if (i == 1)
+                                {
+                                    cartListRef.child("User View")
+                                            .child(Prevalent.currentOnlineUser.getPhone())
+                                            .child("CartProducts")
+                                            .child(model.getPid()) //the unique ID which the user want to remove
+                                            .removeValue()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task)
+                                                {
+                                                    if (task.isSuccessful())
+                                                    {
+                                                        Toast.makeText(CartActivity.this, "Item removed successfully.", Toast.LENGTH_SHORT).show();
+
+                                                        Intent intent = new Intent(CartActivity.this, CartActivity.class);
+                                                        startActivity(intent);
+                                                    }
+                                                }
+                                            });
+                                }
+                            }
+                        });
+                        builder.show();
+                    }
+                });
             }
 
             @NonNull
