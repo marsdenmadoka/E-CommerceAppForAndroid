@@ -81,7 +81,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("time", saveCurrentTime);
         cartMap.put("quantity", numberButton.getNumber());
         cartMap.put("discount", "");
-        //in our child cart_list  create a sub child UserView with children  CartProducts with subchildren phoneNo with cildren productID
+        //in our child cart_list  create a sub child UserView with subchildren phoneNo with cildren children  CartProducts with child unique productID
         //we will use the user view to display data to the user
         cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone())
                 .child("CartProducts").child(productID)
@@ -92,7 +92,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     {
                         if (task.isSuccessful())
                         {
-                            //in our child cart_list  create ANOTHER sub child admin View with children  CartProduct  with subchild phoneNo witth children productID
+                            //in our child cart_list  create ANOTHER sub child admin View with children  phoneNo witth children cartProduct with child uque id
                             //we will use the admin view to display data to the admin
                             cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
                                     .child("CartProducts").child(productID)
