@@ -10,7 +10,7 @@ import marsmadoka98.gmail.ecommerceapp.R;
 
 public class CartViewHolder  extends RecyclerView.ViewHolder implements View.OnClickListener{ //view holder for CartActivity
 
-    public TextView txtProductName, txtProductPrice, txtProductQuantity;
+    public TextView txtProductName, txtProductPrice, txtProductQuantity,txtTotalAmount;
     private ItemClickListener itemClickListner; //refere this interface to the interface package
 
 
