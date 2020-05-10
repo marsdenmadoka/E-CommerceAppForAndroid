@@ -62,11 +62,10 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View view)
                             {
-                                //String uID = getRef(position).getKey();
-
-//                                Intent intent = new Intent(AdminNewOrdersActivity.this, AdminUserProductsActivity.class);
-//                                intent.putExtra("uid", uID);
-//                                startActivity(intent);
+                                String uID = getRef(position).getKey();
+                                Intent intent = new Intent(AdminNewOrdersActivity.this, AdminUserProductsActivity.class);
+                                intent.putExtra("uid",model.getPhone());
+                                startActivity(intent);
                             }
                         });
 
