@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,11 +55,19 @@ public class CartActivity extends AppCompatActivity {
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
+
+                if (overTotalPrice ==0 ) {
+                    Toast.makeText(CartActivity.this, "please place an order", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(CartActivity.this, HomeActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+
+                } else{
+                    Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
                 intent.putExtra("Total Price", String.valueOf(overTotalPrice));
                 startActivity(intent);
                 finish();
-
+            }
             }
         });
     }
@@ -154,9 +163,11 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
         adapter.startListening();
-
-
     }
+
+
+
+
 
 
 }
