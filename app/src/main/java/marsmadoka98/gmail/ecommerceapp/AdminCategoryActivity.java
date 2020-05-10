@@ -24,6 +24,8 @@ public class AdminCategoryActivity extends AppCompatActivity {
         LogoutBtn = (Button) findViewById(R.id.admin_logout_btn);
         CheckOrdersBtn = (Button) findViewById(R.id.check_orders_btn);
         maintainProductsBtn = (Button) findViewById(R.id.maintain_btn);
+
+
         maintainProductsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -46,14 +48,14 @@ public class AdminCategoryActivity extends AppCompatActivity {
             }
         });
 
-       // CheckOrdersBtn.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View view)
-            //{
-             //   Intent intent = new Intent(AdminCategoryActivity.this, AdminNewOrdersActivity.class);
-           //     startActivity(intent);
-         //   }
-       // });
+        CheckOrdersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminNewOrdersActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         tShirts = (ImageView) findViewById(R.id.t_shirts);

@@ -142,6 +142,7 @@ public class CartActivity extends AppCompatActivity {
                                                         startActivity(intent);
                                                     }
                                                 }
+
                                             });
                                 }
                             }
