@@ -63,6 +63,17 @@ public class SettingsActivity extends AppCompatActivity {
 
         userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
 
+
+
+        securityQuestionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this,ResetPasswordActivity.class);
+                intent.putExtra("check","settings");
+                startActivity(intent);
+
+            }
+        });
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
