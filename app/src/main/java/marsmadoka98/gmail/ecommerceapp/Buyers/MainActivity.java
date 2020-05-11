@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,15 +22,18 @@ import io.paperdb.Paper;
 import marsmadoka98.gmail.ecommerceapp.Model.Users;
 import marsmadoka98.gmail.ecommerceapp.Prevalent.Prevalent;
 import marsmadoka98.gmail.ecommerceapp.R;
+import marsmadoka98.gmail.ecommerceapp.Sellers.SellerRegistrationActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button joinNowButton,loginButton;
+    private TextView sellerbegin;
     ProgressDialog loadingBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sellerbegin=findViewById(R.id.seller_begin);
         joinNowButton=findViewById(R.id.main_join_now_btn);
         loginButton=findViewById(R.id.main_login_btn);
         Paper.init(this);
@@ -65,6 +69,16 @@ public class MainActivity extends AppCompatActivity {
                 loadingBar.show();
             }
         }
+
+
+        sellerbegin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SellerRegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
