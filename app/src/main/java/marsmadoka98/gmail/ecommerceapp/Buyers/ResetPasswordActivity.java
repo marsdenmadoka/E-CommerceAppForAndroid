@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Buyers;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import marsmadoka98.gmail.ecommerceapp.R;
 
 public class ResetPasswordActivity extends AppCompatActivity {
 

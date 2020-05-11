@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +25,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
@@ -33,6 +32,7 @@ import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import marsmadoka98.gmail.ecommerceapp.Prevalent.Prevalent;
+import marsmadoka98.gmail.ecommerceapp.R;
 
 public class SettingsActivity extends AppCompatActivity {
     private CircleImageView profileImageView;
@@ -68,7 +68,7 @@ public class SettingsActivity extends AppCompatActivity {
         securityQuestionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SettingsActivity.this,ResetPasswordActivity.class);
+                Intent intent = new Intent(SettingsActivity.this, ResetPasswordActivity.class);
                 intent.putExtra("check","settings");
                 startActivity(intent);
 

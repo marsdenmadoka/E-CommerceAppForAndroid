@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+
+import marsmadoka98.gmail.ecommerceapp.R;
 
 public class RegisterActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +20,7 @@ import com.rey.material.widget.EditText;
 import com.squareup.picasso.Picasso;
 
 import marsmadoka98.gmail.ecommerceapp.Model.Products;
+import marsmadoka98.gmail.ecommerceapp.R;
 import marsmadoka98.gmail.ecommerceapp.ViewHolder.ProductViewHolder;
 
 

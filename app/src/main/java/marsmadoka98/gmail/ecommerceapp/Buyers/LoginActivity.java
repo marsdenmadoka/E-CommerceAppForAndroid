@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +24,7 @@ import io.paperdb.Paper;
 import marsmadoka98.gmail.ecommerceapp.Admin.AdminCategoryActivity;
 import marsmadoka98.gmail.ecommerceapp.Model.Users;
 import marsmadoka98.gmail.ecommerceapp.Prevalent.Prevalent;
+import marsmadoka98.gmail.ecommerceapp.R;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText InputPhoneNumber, InputPassword;

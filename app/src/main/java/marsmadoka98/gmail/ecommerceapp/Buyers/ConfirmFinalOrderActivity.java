@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +22,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 import marsmadoka98.gmail.ecommerceapp.Prevalent.Prevalent;
+import marsmadoka98.gmail.ecommerceapp.R;
 
 public class ConfirmFinalOrderActivity extends AppCompatActivity {
 

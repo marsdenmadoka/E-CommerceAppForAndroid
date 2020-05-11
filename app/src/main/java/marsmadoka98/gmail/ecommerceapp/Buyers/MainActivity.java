@@ -1,10 +1,9 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.app.WallpaperInfo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import io.paperdb.Paper;
 import marsmadoka98.gmail.ecommerceapp.Model.Users;
 import marsmadoka98.gmail.ecommerceapp.Prevalent.Prevalent;
+import marsmadoka98.gmail.ecommerceapp.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button joinNowButton,loginButton;
@@ -69,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void SendToRegister() {
-        Intent RegisterIntent = new Intent(MainActivity.this,RegisterActivity.class);
+        Intent RegisterIntent = new Intent(MainActivity.this, RegisterActivity.class);
         startActivity(RegisterIntent);
     }
 
     public  void SendToLogin(){
-        Intent LoginIntent = new Intent(MainActivity.this,LoginActivity.class);
+        Intent LoginIntent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(LoginIntent);
     }
 

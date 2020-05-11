@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Buyers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,6 +32,7 @@ import io.paperdb.Paper;
 import marsmadoka98.gmail.ecommerceapp.Admin.AdminMaintainProductsActivity;
 import marsmadoka98.gmail.ecommerceapp.Model.Products;
 import marsmadoka98.gmail.ecommerceapp.Prevalent.Prevalent;
+import marsmadoka98.gmail.ecommerceapp.R;
 import marsmadoka98.gmail.ecommerceapp.ViewHolder.ProductViewHolder;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -138,7 +139,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
                                 }else{
                                   //else if its not the admin accessing this..send the user to product activity without priveledges for editing products details
-                                    Intent intent=new Intent(HomeActivity.this,ProductDetailsActivity.class);
+                                    Intent intent=new Intent(HomeActivity.this, ProductDetailsActivity.class);
                                     intent.putExtra("pid",model.getPid());
                                     startActivity(intent);
                                 }
@@ -204,7 +205,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         else if(id==R.id.nav_search){
 
-            Intent intent = new Intent(HomeActivity.this,SearchProductsActivity.class);
+            Intent intent = new Intent(HomeActivity.this, SearchProductsActivity.class);
             startActivity(intent);
 
         }else if(id==R.id.nav_categories){
@@ -216,7 +217,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
 
         }else if(id==R.id.nav_logout){
-            Intent intent=new Intent(HomeActivity.this,LoginActivity.class);
+            Intent intent=new Intent(HomeActivity.this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
