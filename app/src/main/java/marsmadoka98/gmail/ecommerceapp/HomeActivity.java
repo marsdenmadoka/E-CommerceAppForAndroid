@@ -44,6 +44,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+    private String type="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
 
-        ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
+
+        Intent intent=getIntent();
+        Bundle bundle = intent.getExtras();
+        //without this if statement our app will crash since the user wont be able to find the extra because we are fetching the extra from AdminCategory which does not
+        // belong  to the user its only belongs to the admin
+        //we need to specify who should use the intent
+        if(bundle != null) {
+            type = getIntent().getExtras().get("myAdmin").toString();//we fetched this extra from AdminCategoryActivity                         //this is just our own extra intent tha we created ourselves in order identify who is accessing the home activity
+        }
+
+
+        ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,8 +90,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         View view = navigationView.getHeaderView(0);
         TextView username=view.findViewById(R.id.user_profile_name);//setting the user name in our nav-drawer
         CircleImageView profileimage=view.findViewById(R.id.user_profile_image);
-       username.setText(Prevalent.currentOnlineUser.getName());//we used this since its readily available in our prevalent class so no need to fetch it from DB again
-        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).into(profileimage);
+
+        if(!type.equals("myAdmin")){ //means that if the actvity has no extra intent then display it as user with the user and pic//else if it admin disply it with no username and actiity
+            username.setText(Prevalent.currentOnlineUser.getName());//we used this since its readily available in our prevalent class so no need to fetch it from DB again
+            Picasso.get().load(Prevalent.currentOnlineUser.getImage()).into(profileimage);
+
+        }
 
         recyclerView = findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
@@ -108,12 +125,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
 
+
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent intent=new Intent(HomeActivity.this,ProductDetailsActivity.class);
-                                intent.putExtra("pid",model.getPid());
-                                startActivity(intent);
+                                if(type.equals("myAdmin")){ //note we fetched this extra from AdminCategory..PLEASE please note...THIS IS NOT THE ADMIN DB NAME
+                                    Intent intent=new Intent(HomeActivity.this,AdminMaintainProductsActivity.class);
+                                    intent.putExtra("pid",model.getPid());
+                                    startActivity(intent);
+
+                                }else{
+                                  //else if its not the admin accessing this..send the user to product activity without priveledges for editing products details
+                                    Intent intent=new Intent(HomeActivity.this,ProductDetailsActivity.class);
+                                    intent.putExtra("pid",model.getPid());
+                                    startActivity(intent);
+                                }
+
                             }
                         });
                     }

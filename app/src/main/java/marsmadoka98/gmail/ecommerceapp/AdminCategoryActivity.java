@@ -31,7 +31,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 Intent intent = new Intent(AdminCategoryActivity.this, HomeActivity.class);
-                intent.putExtra("Admin", "Admin");
+                intent.putExtra("myAdmin", "myAdmin");//take note of this extra
                 startActivity(intent);
             }
         });
