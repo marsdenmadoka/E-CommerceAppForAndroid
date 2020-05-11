@@ -68,7 +68,8 @@ public class AdminUserProductsActivity extends AppCompatActivity {
             @NonNull
             @Override
             public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-            {
+            {                     
+                         // we reused the layout of CartActivity and used it in this activity
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_items_layout, parent, false);
                 CartViewHolder holder = new CartViewHolder(view);
                 return holder;
