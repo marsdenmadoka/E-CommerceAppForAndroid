@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import marsmadoka98.gmail.ecommerceapp.Model.Cart;
+import marsmadoka98.gmail.ecommerceapp.R;
 import marsmadoka98.gmail.ecommerceapp.ViewHolder.CartViewHolder;
 
 public class AdminUserProductsActivity extends AppCompatActivity {
@@ -68,7 +69,7 @@ public class AdminUserProductsActivity extends AppCompatActivity {
             @NonNull
             @Override
             public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-            {                     
+            {
                          // we reused the layout of CartActivity and used it in this activity
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_items_layout, parent, false);
                 CartViewHolder holder = new CartViewHolder(view);

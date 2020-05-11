@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,10 +20,7 @@ import com.squareup.picasso.Picasso;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -33,6 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
+import marsmadoka98.gmail.ecommerceapp.Admin.AdminMaintainProductsActivity;
 import marsmadoka98.gmail.ecommerceapp.Model.Products;
 import marsmadoka98.gmail.ecommerceapp.Prevalent.Prevalent;
 import marsmadoka98.gmail.ecommerceapp.ViewHolder.ProductViewHolder;
@@ -57,26 +54,31 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
 
-
-        Intent intent=getIntent();
+        Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         //without this if statement our app will crash since the user wont be able to find the extra because we are fetching the extra from AdminCategory which does not
         // belong  to the user its only belongs to the admin
         //we need to specify who should use the intent
-        if(bundle != null) {
+        if (bundle != null) {
             type = getIntent().getExtras().get("myAdmin").toString();//we fetched this extra from AdminCategoryActivity                         //this is just our own extra intent tha we created ourselves in order identify who is accessing the home activity
         }
 
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
-        FloatingActionButton fab = findViewById(R.id.fab);
+        final FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setVisibility(View.INVISIBLE);
+
+        if (!type.equals("myAdmin")) { //if the user is not admin then make the fab visible
+        fab.setVisibility(View.VISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this,CartActivity.class);
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
       //  DrawerLayout drawer = findViewById(R.id.drawer_layout);
         //display the navdrawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -130,7 +132,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                             @Override
                             public void onClick(View view) {
                                 if(type.equals("myAdmin")){ //note we fetched this extra from AdminCategory..PLEASE please note...THIS IS NOT THE ADMIN DB NAME
-                                    Intent intent=new Intent(HomeActivity.this,AdminMaintainProductsActivity.class);
+                                    Intent intent=new Intent(HomeActivity.this, AdminMaintainProductsActivity.class);
                                     intent.putExtra("pid",model.getPid());
                                     startActivity(intent);
 
@@ -194,19 +196,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.nav_cart){
-            Intent intent = new Intent(HomeActivity.this,CartActivity.class);
-            startActivity(intent);
-
+            if(!type.equals("myAdmin")) {
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
         }
+
         else if(id==R.id.nav_search){
+
             Intent intent = new Intent(HomeActivity.this,SearchProductsActivity.class);
             startActivity(intent);
 
         }else if(id==R.id.nav_categories){
 
         }else if(id==R.id.nav_settings){
-            Intent intent=new Intent(HomeActivity.this,SettingsActivity.class);
-            startActivity(intent);
+            if(!type.equals("myAdmin")) {
+                Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
 
         }else if(id==R.id.nav_logout){
             Intent intent=new Intent(HomeActivity.this,LoginActivity.class);

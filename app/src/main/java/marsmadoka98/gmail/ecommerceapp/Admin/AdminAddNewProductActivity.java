@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,9 +29,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
+import marsmadoka98.gmail.ecommerceapp.R;
+
 
 public class AdminAddNewProductActivity extends AppCompatActivity {
-    private String CategoryName, Description, Price, Pname, saveCurrentDate, saveCurrentTime;
+    private String categoryName, Description, Price, Pname, saveCurrentDate, saveCurrentTime;
     private Button AddNewProductButton;
     private ImageView InputProductImage;
     private EditText InputProductName, InputProductDescription, InputProductPrice;
@@ -42,14 +44,12 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     private DatabaseReference ProductsRef;
     private ProgressDialog loadingBar;
 
-    private String categoryName;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_new_product);
 
-        categoryName=getIntent().getExtras().get("category").toString();
+        categoryName=getIntent().getExtras().get("category").toString(); //fetched from AdminCategory Activity
         Toast.makeText(this, categoryName, Toast.LENGTH_SHORT).show();
 
         ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
@@ -209,7 +209,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         productMap.put("time", saveCurrentTime);
         productMap.put("description", Description);
         productMap.put("image", downloadImageUrl);
-        productMap.put("category", CategoryName);
+        productMap.put("category",categoryName);
         productMap.put("price", Price);
         productMap.put("pname", Pname);
 

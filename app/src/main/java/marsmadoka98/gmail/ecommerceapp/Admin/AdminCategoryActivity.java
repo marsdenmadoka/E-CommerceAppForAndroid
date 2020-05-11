@@ -1,4 +1,4 @@
-package marsmadoka98.gmail.ecommerceapp;
+package marsmadoka98.gmail.ecommerceapp.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import marsmadoka98.gmail.ecommerceapp.HomeActivity;
+import marsmadoka98.gmail.ecommerceapp.MainActivity;
+import marsmadoka98.gmail.ecommerceapp.R;
 
 public class AdminCategoryActivity extends AppCompatActivity {
 
