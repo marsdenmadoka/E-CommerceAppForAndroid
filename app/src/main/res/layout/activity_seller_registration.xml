@@ -43,7 +43,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_below="@id/seller_name"
-        android:hint="Name.."
+        android:hint="phone.."
         android:inputType="number"
         android:layout_marginTop="5dp"
         />
