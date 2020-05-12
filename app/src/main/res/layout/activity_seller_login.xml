@@ -30,13 +30,13 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_below="@id/title_seller"
-        android:hint="Name.."
-        android:inputType="text"
+        android:hint="email.."
+        android:inputType="textEmailAddress"
         android:layout_marginTop="10dp"
         />
 
     <EditText
-        android:id="@+id/seller_password"
+        android:id="@+id/seller_login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -50,8 +50,8 @@
         android:id="@+id/seller_login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/seller_password"
-        android:layout_marginTop="15dp"
+        android:layout_below="@+id/seller_login_password"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/buttons"
