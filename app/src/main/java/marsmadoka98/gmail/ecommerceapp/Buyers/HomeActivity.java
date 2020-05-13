@@ -38,7 +38,7 @@ import marsmadoka98.gmail.ecommerceapp.ViewHolder.ProductViewHolder;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
-    private DatabaseReference ProductsRef;
+    private DatabaseReference ProductsRef,AdminProductsRef;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
@@ -65,7 +65,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-        ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        ProductsRef = FirebaseDatabase.getInstance().getReference().child("SellersProducts");
+        //AdminProductsRef=FirebaseDatabase.getInstance().getReference().child("Products");
         final FloatingActionButton fab = findViewById(R.id.fab);
         fab.setVisibility(View.INVISIBLE);
 
@@ -78,6 +79,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
+
     }
 
       //  DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -104,16 +106,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
     }
 
     //displaying our items using recyclerview adapter..note you can decide to include your productViewHolder here or as i did including it outside
     @Override
     protected void onStart() {
         super.onStart();
-
         FirebaseRecyclerOptions<Products> options =
                 new FirebaseRecyclerOptions.Builder<Products>()
-                        .setQuery(ProductsRef, Products.class)
+                        .setQuery(ProductsRef.orderByChild("productState").equalTo("Approved"), Products.class) //we want to display to the buyer the products that are only approved by the Admin using the product state
+                      // .setQuery(AdminProductsRef,Products.class)
                         .build();
 
 
@@ -161,6 +164,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         adapter.startListening();
 
     }
+
 
 
 

@@ -18,7 +18,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
     private ImageView glasses, hatsCaps, walletsBagsPurses, shoes;
     private ImageView headPhonesHandFree, Laptops, watches, mobilePhones;
 
-    private Button LogoutBtn, CheckOrdersBtn, maintainProductsBtn;
+    private Button LogoutBtn, CheckOrdersBtn, maintainProductsBtn,ApproveSellersBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         LogoutBtn = (Button) findViewById(R.id.admin_logout_btn);
         CheckOrdersBtn = (Button) findViewById(R.id.check_orders_btn);
         maintainProductsBtn = (Button) findViewById(R.id.maintain_btn);
+        ApproveSellersBtn= (Button) findViewById(R.id.Approve_Sellers_products);
 
 
         maintainProductsBtn.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +62,15 @@ public class AdminCategoryActivity extends AppCompatActivity {
             }
         });
 
+        ApproveSellersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //approve sellers products by marking them as approved
+                Intent intent = new Intent(AdminCategoryActivity.this, ViewAndApproveSellersProducts.class);
+                startActivity(intent);
+
+            }
+        });
 
         tShirts = (ImageView) findViewById(R.id.t_shirts);
         sportsTShirts = (ImageView) findViewById(R.id.sports_t_shirts);
