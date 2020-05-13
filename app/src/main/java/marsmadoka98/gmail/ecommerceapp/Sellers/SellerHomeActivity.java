@@ -44,8 +44,8 @@ public class SellerHomeActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()){
                 case R.id.navigation_home:
-
-                    mTextMessage.setText(R.string.title_home);
+                    Intent intenthome = new Intent(SellerHomeActivity.this,SellerHomeActivity.class);
+                    startActivity(intenthome);
                 return true;
 
                 case R.id.navigation_add:
