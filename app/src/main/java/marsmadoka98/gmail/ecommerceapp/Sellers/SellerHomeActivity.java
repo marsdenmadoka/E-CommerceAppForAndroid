@@ -8,9 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import marsmadoka98.gmail.ecommerceapp.Admin.ViewAndApproveSellersProducts;
 import marsmadoka98.gmail.ecommerceapp.Buyers.MainActivity;
 import marsmadoka98.gmail.ecommerceapp.Model.Products;
 import marsmadoka98.gmail.ecommerceapp.R;
@@ -101,7 +105,7 @@ public class SellerHomeActivity extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, final int position, @NonNull final Products model) {
                         holder.txtProductState.setVisibility(View.VISIBLE);
-                        holder.txtProductState.setText(model.getProductState());
+                        holder.txtProductState.setText("state"+model.getProductState());
                         holder.txtProductName.setText(model.getPname());
                         holder.txtProductDescription.setText(model.getDescription());
                         holder.txtProductPrice.setText("Price = " + model.getPrice() + "$");
@@ -126,7 +130,7 @@ public class SellerHomeActivity extends AppCompatActivity {
 
                                         if(position == 0){
 
-                                          //  ChangeProductState(productID);
+                                           DeleteProduct(productID);
 
                                         }
 
@@ -157,7 +161,18 @@ public class SellerHomeActivity extends AppCompatActivity {
 
     }
 
+    private void DeleteProduct(String productID) {
 
+        unverifiedProductsRef.child(productID)
+                .removeValue()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(SellerHomeActivity.this, "item deleted successful", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
-
+    }
 }
