@@ -121,7 +121,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     private void getProductDetails(String productID)
     { //fetching from firebase using productID
-        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("SellersProducts");
 
         productsRef.child(productID).addValueEventListener(new ValueEventListener() { //note productsRef.child(productID)
             @Override
