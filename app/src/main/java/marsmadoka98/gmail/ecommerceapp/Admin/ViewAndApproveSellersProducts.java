@@ -94,38 +94,6 @@ public class ViewAndApproveSellersProducts extends AppCompatActivity {
                             }
                         });
 
-//                        final  Products itemClick = model;
-//                        holder.setItemClickListner(new ItemClickListener() {
-//                            @Override
-//                            public void onClick(View view, final int position, boolean isLongClick) {
-//                                final String productID =itemClick.getPid();
-//                                 CharSequence options [] = new CharSequence[]
-//                                         {
-//                                                 "Yes",
-//                                                 "No"
-//                                         };
-//                                AlertDialog.Builder bulder = new AlertDialog.Builder(ViewAndApproveSellersProducts.this);
-//                                bulder.setTitle("DO you want to Approve this Product for purchase");
-//                                bulder.setItems(options, new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                                        if(position == 0){
-//
-//                                            ChangeProductState(productID);
-//
-//                                        }
-//
-//                                        if(position == 1){
-//
-//                                        }
-//                                    }
-//                                });
-//                    bulder.show();
-//
-//                            }
-//                        });
-
 
 
                     }
