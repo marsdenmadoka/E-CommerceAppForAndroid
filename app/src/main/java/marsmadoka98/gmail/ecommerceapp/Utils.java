@@ -8,6 +8,7 @@ import java.util.Locale;
 
 
 //This will handle the regex format for phone numbers and generate the timestamp as well.
+//daraja we will use  confirmFinalOrder Activity in the Buyerspackage to work with our stk
 public class Utils {
     public static String getTimestamp() {
         return new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(new Date());

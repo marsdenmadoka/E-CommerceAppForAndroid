@@ -19,7 +19,7 @@ import static marsmadoka98.gmail.ecommerceapp.Constants.WRITE_TIMEOUT;
 
 //This will utilize Retrofit and Gson to handle our API calls.
 public class DarajaApiClient {
-
+    //daraja we will use  confirmFinalOrder Activity in the Buyerspackage to work with our stk
     private Retrofit retrofit;
     private boolean isDebug;
     private boolean isGetAccessToken;

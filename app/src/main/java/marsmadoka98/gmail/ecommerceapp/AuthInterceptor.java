@@ -8,6 +8,7 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 //Interceptors are mechanisms of the OkHttp library that can add, remove, or replace request headers.
+//daraja we will use  confirmFinalOrder Activity in the Buyerspackage to work with our stk
 public class AuthInterceptor implements Interceptor {
     private String mAuthToken;
 

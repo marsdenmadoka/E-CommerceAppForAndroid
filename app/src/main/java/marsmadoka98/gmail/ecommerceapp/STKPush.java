@@ -2,7 +2,7 @@ package marsmadoka98.gmail.ecommerceapp;
 
 import com.google.gson.annotations.SerializedName;
 
-//daraja we will use  confirmfinalorder in the buyers to work with our stk push
+//daraja we will use  confirmFinalOrder Activity in the Buyerspackage to work with our stk
 public class STKPush {
 
 

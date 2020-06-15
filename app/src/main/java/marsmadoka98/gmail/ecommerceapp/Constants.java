@@ -1,5 +1,5 @@
 package marsmadoka98.gmail.ecommerceapp;
-
+//daraja we will use  confirmFinalOrder Activity in the Buyerspackage to work with our stk
 public class Constants {
     public static final int CONNECT_TIMEOUT = 60 * 1000;
 
