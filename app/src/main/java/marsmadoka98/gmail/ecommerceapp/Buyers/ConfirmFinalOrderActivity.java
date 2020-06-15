@@ -219,6 +219,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
                 try {
                     if (response.isSuccessful()) {
                         Timber.d("post submitted to API. %s", response.body());
+                        //you can save it to your database
                     } else {
                         Timber.e("Response %s", response.errorBody().string());
                     }
